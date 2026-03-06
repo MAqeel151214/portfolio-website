@@ -13,23 +13,35 @@
   const headerToggleBtn = document.querySelector('.header-toggle');
 
   function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
+    document.querySelector('.navmenu').classList.toggle('mobile-nav-active');
     headerToggleBtn.classList.toggle('bi-list');
     headerToggleBtn.classList.toggle('bi-x');
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
+  if (headerToggleBtn) {
+    headerToggleBtn.addEventListener('click', headerToggle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
-      if (document.querySelector('.header-show')) {
+      if (document.querySelector('.mobile-nav-active')) {
         headerToggle();
       }
     });
 
   });
+
+  /**
+   * Sticky Header on Scroll
+   */
+  const selectHeader = document.querySelector('#header');
+  if (selectHeader) {
+    document.addEventListener('scroll', () => {
+      window.scrollY > 50 ? selectHeader.classList.add('scrolled') : selectHeader.classList.remove('scrolled');
+    });
+  }
 
   /**
    * Toggle mobile nav dropdowns
@@ -249,37 +261,38 @@
   const htmlElement = document.documentElement;
   const storageKey = 'theme-preference';
 
-  const setDarkTheme = () => {
-    htmlElement.setAttribute('data-theme', 'dark');
-    themeSwitcher.innerHTML = '<i class="bi bi-sun navicon"></i> Light Theme';
-    localStorage.setItem(storageKey, 'dark');
-  };
-
+  // We are defaulting to dark theme now based on CSS
   const setLightTheme = () => {
-    htmlElement.removeAttribute('data-theme');
-    themeSwitcher.innerHTML = '<i class="bi bi-moon navicon"></i> Dark Theme';
+    htmlElement.setAttribute('data-theme', 'light');
+    if (themeSwitcher) themeSwitcher.innerHTML = 'Dark Theme';
     localStorage.setItem(storageKey, 'light');
   };
 
-  // Check for saved user preference, if any, on load of the website
-  const savedTheme = localStorage.getItem(storageKey);
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const setDarkTheme = () => {
+    htmlElement.removeAttribute('data-theme');
+    if (themeSwitcher) themeSwitcher.innerHTML = 'Light Theme';
+    localStorage.setItem(storageKey, 'dark');
+  };
 
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    setDarkTheme();
-  } else {
+  const savedTheme = localStorage.getItem(storageKey);
+
+  if (savedTheme === 'light') {
     setLightTheme();
+  } else {
+    setDarkTheme(); // Default to dark
   }
 
-  themeSwitcher.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent hash navigation if href="#"
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    if (currentTheme === 'dark') {
-      setLightTheme();
-    } else {
-      setDarkTheme();
-    }
-  });
+  if (themeSwitcher) {
+    themeSwitcher.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        setDarkTheme();
+      } else {
+        setLightTheme();
+      }
+    });
+  }
 
   /**
    * Add animations to all sections

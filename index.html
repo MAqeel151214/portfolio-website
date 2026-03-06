@@ -30,99 +30,68 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <header id="header" class="header">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <div class="profile-img">
-      <img src="assets/img/profile.png" alt="Alex Johnson" class="img-fluid rounded-circle">
+      <a href="index.html" class="logo">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Alex<span>.</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li class="dropdown"><a href="#"><span>More</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i>
+                </a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" id="theme-switcher">Light Theme</a></li>
+        </ul>
+      </nav>
+
+      <i class="header-toggle bi bi-list"></i>
+
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Alex Johnson</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i
-              class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                  class="bi bi-chevron-down toggle-dropdown"></i>
-              </a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-        <li><a href="#" id="theme-switcher"><i class="bi bi-moon navicon"></i> Theme</a></li>
-        <!-- Added Theme Switcher to the navigation bar -->
-      </ul>
-    </nav>
-
   </header>
 
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section" style="display:flex;align-items:stretch;min-height:500px;">
-      <div class="hero-bg-wrapper"
-        style="flex:1;position:relative;display:flex;align-items:center;justify-content:center;">
-        <img src="assets/img/background.jpg" alt="group photo" data-aos="fade-in" class=""
-          style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;">
-        <!-- 3D Animation Overlay -->
-        <div class="scene"
-          style="position:relative;width:900px;max-width:100vw;height:600px;z-index:1;display:flex;justify-content:center;align-items:center;">
-          <div class="image-container img1" style="--i: 1">
-            <img src="assets/img/portfolio/app-1.jpg" alt="Image 1" />
-          </div>
-          <div class="image-container img2" style="--i: 2">
-            <img src="assets/img/portfolio/product-1.jpg" alt="Image 2" />
-          </div>
-          <div class="image-container img3" style="--i: 3">
-            <img src="assets/img/portfolio/branding-1.jpg" alt="Image 3" />
-          </div>
-          <div class="image-container img4" style="--i: 4">
-            <img src="assets/img/portfolio/books-1.jpg" alt="Image 4" />
-          </div>
-          <div class="image-container img5" style="--i: 5">
-            <img src="assets/img/portfolio/app-2.jpg" alt="Image 5" />
-          </div>
-          <div class="image-container img6" style="--i: 6">
-            <img src="assets/img/portfolio/product-2.jpg" alt="Image 6" />
-          </div>
-        </div>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100"
-        style="flex:1;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;">
-        <h2>Alex Johnson</h2>
-        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer">Designer</span><span
-            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
+    <section id="hero" class="hero section">
+      <div class="hero-bg-wrapper"></div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Hi, I'm Alex Johnson</h2>
+        <p>A Passionate <span class="typed" data-typed-items="UI/UX Designer., Full-Stack Developer., Creative Problem Solver.">UI/UX Designer.</span><span
             class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+
+        <div class="social-links">
+          <a href="#" class="twitter" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram" data-aos="fade-up" data-aos-delay="400"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin" data-aos="fade-up" data-aos-delay="500"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="github" data-aos="fade-up" data-aos-delay="600"><i class="bi bi-github"></i></a>
+        </div>
       </div>
     </section><!-- /Hero Section -->
 
@@ -131,53 +100,45 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
+        <h2>About Me</h2>
         <p>I am a passionate and creative professional with a strong background in web development and UI/UX design.
-          My work is driven by a love for clean code, elegant interfaces, and user-focused solutions.
-          I thrive on turning complex problems into simple, beautiful, and intuitive designs.
-          With years of experience across diverse projects, I bring a unique blend of technical skill and creative
-          vision
-          to every engagement.
-
-        </p>
+          My work is driven by a love for clean code, elegant interfaces, and user-focused solutions.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
+        <div class="row gy-5 align-items-center justify-content-center">
+          <div class="col-lg-4 col-md-8">
             <img src="assets/img/profile.png" class="img-fluid" alt="Alex Johnson">
           </div>
-          <div class="col-lg-8 content">
-            <h2>UI/UX Designer &amp; Web Developer.</h2>
-            <p class="fst-italic py-3">
-              Passionate about crafting seamless user experiences and building robust web solutions.
-              My focus is on user-centered design, ensuring that digital products are both beautiful and easy to use.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>15 Jan 1995</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1 234 567 8900</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
-                </ul>
+          <div class="col-lg-8">
+            <div class="content">
+              <h2>UI/UX Designer &amp; Web Developer</h2>
+              <p class="py-3">
+                Passionate about crafting seamless user experiences and building robust web solutions.
+                My focus is on user-centered design, ensuring that digital products are both beautiful and easy to use.
+                I thrive on turning complex problems into simple, intuitive designs.
+              </p>
+              <div class="row mb-4">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>15 Jan 1995</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1 234 567 8900</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>alex@example.com</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  </ul>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>alex@example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
+              <a href="#contact" class="btn btn-primary" style="background: var(--accent-color); border: none; padding: 10px 30px; border-radius: 5px; font-weight: 600;">Let's Talk</a>
             </div>
-            <p class="py-3">
-              I approach every project with enthusiasm and a commitment to quality, blending creative design thinking
-              with meticulous development.
-              I thrive in collaborative environments and believe clear communication is key to delivering successful,
-              user-centric digital products.
-            </p>
           </div>
         </div>
 
@@ -186,7 +147,7 @@
     </section><!-- /About Section -->
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section">
+    <section id="stats" class="stats section light-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -197,7 +158,7 @@
               <i class="bi bi-emoji-smile"></i>
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p><strong>Happy Clients</strong> <span>Building lasting relationships.</span></p>
+              <p>Happy Clients</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -206,7 +167,7 @@
               <i class="bi bi-journal-richtext"></i>
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p><strong>Projects</strong> <span>Successfully delivered on time.</span></p>
+              <p>Projects</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -215,7 +176,7 @@
               <i class="bi bi-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>Dedicated to ensuring client success.</span></p>
+              <p>Hours Of Support</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -224,7 +185,7 @@
               <i class="bi bi-people"></i>
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p><strong>Hard Workers</strong> <span>Dedicated professionals, driving results.</span></p>
+              <p>Hard Workers</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -317,16 +278,15 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
-        <p>This section outlines my educational background and relevant professional experience,
-          highlighting key milestones and projects that have shaped my skills as a UI/UX Designer and Web Developer.</p>
+        <p>A summary of my educational background, professional experience, and key certifications.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row">
+        <div class="row gy-5">
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
+            <h3 class="resume-title">Summary</h3>
 
             <div class="resume-item pb-0">
               <h4>Alex Johnson</h4>
@@ -334,7 +294,7 @@
                   user-centered digital/print marketing material from initial concept to final, polished
                   deliverable.</em></p>
               <ul>
-                <li>123 Main Street, New York, NY</li>
+                <li>New York, NY</li>
                 <li>(555) 123-4567</li>
                 <li>alex@example.com</li>
               </ul>
@@ -348,14 +308,6 @@
               <p>Advanced studies concentrating on software engineering, algorithms, and modern web technologies.</p>
             </div><!-- Edn Resume Item -->
 
-            <div class="resume-item">
-              <h4>High School Diploma</h4>
-              <h5>2009 - 2013</h5>
-              <p><em>Lincoln High School, Springfield, USA</em></p>
-              <p>Comprehensive program focused on core STEM subjects, creative problem-solving,
-                and foundational skills in computing and design.</p>
-            </div><!-- Edn Resume Item -->
-
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -365,13 +317,9 @@
               <h5>2020 - Present</h5>
               <p><em>Creative Agency Inc., New York, USA</em></p>
               <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production
-                  communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the
-                  project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the
-                  design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                <li>Lead in the design, development, and implementation of the graphic, layout, and production materials</li>
+                <li>Delegate tasks to the 7 members of the design team</li>
+                <li>Supervise the assessment of all graphic materials</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -380,36 +328,11 @@
               <h5>2017 - 2020</h5>
               <p><em>TechStart Solutions, Boston, USA</em></p>
               <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and
-                  advertisements).</li>
+                <li>Developed numerous marketing programs (logos, brochures, infographics).</li>
                 <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
-          </div>
-
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="resume-title">Certifications</h3>
-            <div class="resume-item">
-              <h4>Certified Data Scientist</h4>
-              <h5>2024</h5>
-              <p><em>Data Science Institute</em></p>
-              <p>Completed an advanced certification program focusing on machine learning, data analysis, and
-                visualization techniques.</p>
-            </div>
-            <div class="resume-item">
-              <h4>Full-Stack Web Development Certification</h4>
-              <h5>2023</h5>
-              <p><em>Code Academy</em></p>
-              <p>Gained expertise in front-end and back-end web development, including HTML, CSS, JavaScript, and
-                server-side technologies.</p>
-            </div>
           </div>
 
         </div>
@@ -1044,8 +967,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>You can contact me using the email or submit your query in the form below.</p>
+        <h2>Get In Touch</h2>
+        <p>Ready to start your next project? Drop me a message below or contact me directly.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -1058,15 +981,15 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Address</h3>
-                  <p>123 Innovation Drive, Suite 400, New York, NY 10001, USA</p>
+                  <h3>Location</h3>
+                  <p>123 Innovation Drive, New York, NY</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Us</h3>
+                  <h3>Call Me</h3>
                   <p>+1 (555) 123-4567</p>
                 </div>
               </div><!-- End Info Item -->
@@ -1074,13 +997,11 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email Us</h3>
-                  <p>contact@example.com</p>
+                  <h3>Email Me</h3>
+                  <p>contact@alexjohnson.com</p>
                 </div>
               </div><!-- End Info Item -->
 
-              <iframe src="assets/img/location.png" frameborder="0" style="border:0; width: 100%; height: 270px;"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
@@ -1089,24 +1010,24 @@
               data-aos-delay="200">
               <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
+                <div class="col-md-6 form-group">
+                  <label for="name-field">Your Name</label>
                   <input type="text" name="name" id="name-field" class="form-control" required="">
                 </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
+                <div class="col-md-6 form-group">
+                  <label for="email-field">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email-field" required="">
                 </div>
 
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
+                <div class="col-md-12 form-group">
+                  <label for="subject-field">Subject</label>
                   <input type="text" class="form-control" name="subject" id="subject-field" required="">
                 </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                <div class="col-md-12 form-group">
+                  <label for="message-field">Message</label>
+                  <textarea class="form-control" name="message" rows="6" id="message-field" required=""></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -1129,16 +1050,23 @@
 
   </main>
 
-  <footer id="footer" class="footer position-relative light-background">
+  <footer id="footer" class="footer position-relative">
 
     <div class="container">
+      <div class="logo-footer mb-3">
+        <h2 class="sitename" style="font-size: 28px;">Alex<span>.</span></h2>
+      </div>
+      <div class="social-links d-flex justify-content-center mb-4">
+        <a href="#" class="twitter" style="margin: 0 10px; font-size: 20px; color: var(--muted-color); transition: 0.3s;"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook" style="margin: 0 10px; font-size: 20px; color: var(--muted-color); transition: 0.3s;"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram" style="margin: 0 10px; font-size: 20px; color: var(--muted-color); transition: 0.3s;"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin" style="margin: 0 10px; font-size: 20px; color: var(--muted-color); transition: 0.3s;"><i class="bi bi-linkedin"></i></a>
+      </div>
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Muhammad Aqeel</strong> <span>All Rights
-            Reserved</span>
-        </p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Alex Johnson</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
-        Designed by <a href="#">Muhammad Aqeel</a>
+        Designed with passion
       </div>
     </div>
 
