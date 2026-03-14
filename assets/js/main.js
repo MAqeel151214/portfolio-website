@@ -264,13 +264,25 @@
   // We are defaulting to dark theme now based on CSS
   const setLightTheme = () => {
     htmlElement.setAttribute('data-theme', 'light');
-    if (themeSwitcher) themeSwitcher.innerHTML = 'Dark Theme';
+    if (themeSwitcher) {
+      const icon = themeSwitcher.querySelector('i');
+      if (icon) {
+        icon.classList.remove('bi-sun');
+        icon.classList.add('bi-moon');
+      }
+    }
     localStorage.setItem(storageKey, 'light');
   };
 
   const setDarkTheme = () => {
     htmlElement.removeAttribute('data-theme');
-    if (themeSwitcher) themeSwitcher.innerHTML = 'Light Theme';
+    if (themeSwitcher) {
+      const icon = themeSwitcher.querySelector('i');
+      if (icon) {
+        icon.classList.remove('bi-moon');
+        icon.classList.add('bi-sun');
+      }
+    }
     localStorage.setItem(storageKey, 'dark');
   };
 
