@@ -14,8 +14,15 @@
 
   function headerToggle() {
     document.querySelector('.navmenu').classList.toggle('mobile-nav-active');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
+
+    // Check if the toggle button is our new <button> element with an <i> inside, or just the <i> directly.
+    const icon = headerToggleBtn.querySelector('i') || headerToggleBtn;
+    icon.classList.toggle('bi-list');
+    icon.classList.toggle('bi-x');
+
+    // Update aria-expanded state for accessibility
+    const isExpanded = document.querySelector('.navmenu').classList.contains('mobile-nav-active');
+    headerToggleBtn.setAttribute('aria-expanded', isExpanded);
   }
   if (headerToggleBtn) {
     headerToggleBtn.addEventListener('click', headerToggle);
