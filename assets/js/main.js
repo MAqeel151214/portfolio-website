@@ -232,6 +232,12 @@
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
 
+      // Cache DOM query for section on the link object
+      if (navmenulink.sectionRef === undefined) {
+        navmenulink.sectionRef = document.querySelector(navmenulink.hash);
+      }
+      let section = navmenulink.sectionRef;
+
       let section = navmenulink._section;
       if (!section) {
         section = navmenulink._section = document.querySelector(navmenulink.hash);
@@ -239,6 +245,18 @@
       if (!section) return;
 
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navmenulinks.forEach(link => {
+          if (link !== navmenulink && link.classList.contains('active')) {
+            link.classList.remove('active');
+          }
+        });
+        if (!navmenulink.classList.contains('active')) {
+          navmenulink.classList.add('active');
+        }
+      } else {
+        if (navmenulink.classList.contains('active')) {
+          navmenulink.classList.remove('active');
+        }
         if (!navmenulink.classList.contains('active')) {
           document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
           navmenulink.classList.add('active');
