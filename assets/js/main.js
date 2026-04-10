@@ -229,16 +229,30 @@
   function navmenuScrollspy() {
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
+
+      // Cache DOM query for section on the link object
+      if (navmenulink.sectionRef === undefined) {
+        navmenulink.sectionRef = document.querySelector(navmenulink.hash);
+      }
+      let section = navmenulink.sectionRef;
+
       if (!section) return;
       let position = window.scrollY + 200;
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
+        navmenulinks.forEach(link => {
+          if (link !== navmenulink && link.classList.contains('active')) {
+            link.classList.remove('active');
+          }
+        });
+        if (!navmenulink.classList.contains('active')) {
+          navmenulink.classList.add('active');
+        }
       } else {
-        navmenulink.classList.remove('active');
+        if (navmenulink.classList.contains('active')) {
+          navmenulink.classList.remove('active');
+        }
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
