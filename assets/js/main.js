@@ -8,16 +8,31 @@
   "use strict";
 
   /**
-   * Apply throttle to prevent excessive function execution during scroll events.
+   * ⚡ Bolt Performance Optimization:
+   * Throttle utility to limit the execution frequency of high-frequency events like 'scroll'.
    */
-  function throttle(fn, wait) {
-    let time = Date.now();
-    return function () {
-      if ((time + wait - Date.now()) < 0) {
-        fn();
-        time = Date.now();
+  function throttle(func, delay) {
+    let lastCall = 0;
+    let timeout = null;
+    return function (...args) {
+      const now = new Date().getTime();
+      const remaining = delay - (now - lastCall);
+      const context = this;
+      if (remaining <= 0) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        lastCall = now;
+        func.apply(context, args);
+      } else if (!timeout) {
+        timeout = setTimeout(() => {
+          lastCall = new Date().getTime();
+          timeout = null;
+          func.apply(context, args);
+        }, remaining);
       }
-    }
+    };
   }
 
   /**
@@ -250,11 +265,6 @@
         navmenulink.sectionRef = document.querySelector(navmenulink.hash);
       }
       let section = navmenulink.sectionRef;
-
-      let section = navmenulink._section;
-      if (!section) {
-        section = navmenulink._section = document.querySelector(navmenulink.hash);
-      }
       if (!section) return;
 
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
@@ -264,14 +274,6 @@
           }
         });
         if (!navmenulink.classList.contains('active')) {
-          navmenulink.classList.add('active');
-        }
-      } else {
-        if (navmenulink.classList.contains('active')) {
-          navmenulink.classList.remove('active');
-        }
-        if (!navmenulink.classList.contains('active')) {
-          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
           navmenulink.classList.add('active');
         }
       } else if (navmenulink.classList.contains('active')) {
