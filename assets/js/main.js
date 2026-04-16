@@ -8,6 +8,19 @@
   "use strict";
 
   /**
+   * Apply throttle to prevent excessive function execution during scroll events.
+   */
+  function throttle(fn, wait) {
+    let time = Date.now();
+    return function () {
+      if ((time + wait - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
+    }
+  }
+
+  /**
    * Header toggle
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
@@ -45,9 +58,9 @@
    */
   const selectHeader = document.querySelector('#header');
   if (selectHeader) {
-    document.addEventListener('scroll', () => {
+    document.addEventListener('scroll', throttle(() => {
       window.scrollY > 50 ? selectHeader.classList.add('scrolled') : selectHeader.classList.remove('scrolled');
-    });
+    }, 100));
   }
 
   /**
@@ -91,7 +104,7 @@
   });
 
   window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+  document.addEventListener('scroll', throttle(toggleScrollTop, 100));
 
   /**
    * Animation on scroll function and init
@@ -267,7 +280,7 @@
     });
   }
   window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+  document.addEventListener('scroll', throttle(navmenuScrollspy, 100));
 
   /**
    * Ensure Isotope initializes after all images and items are fully loaded.
