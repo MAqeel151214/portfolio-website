@@ -268,11 +268,13 @@
       if (!section) return;
 
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navmenulinks.forEach(link => {
-          if (link !== navmenulink && link.classList.contains('active')) {
-            link.classList.remove('active');
-          }
-        });
+        // ⚡ Bolt Performance Optimization:
+        // By removing the inner loop over all navmenulinks and instead caching the currently active link
+        // (or relying on the else-if to clean up), we turn an O(N^2) operation into O(N).
+        let currentActive = document.querySelector('.navmenu a.active');
+        if (currentActive && currentActive !== navmenulink) {
+          currentActive.classList.remove('active');
+        }
         if (!navmenulink.classList.contains('active')) {
           navmenulink.classList.add('active');
         }
