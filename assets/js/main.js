@@ -8,6 +8,34 @@
   "use strict";
 
   /**
+   * ⚡ Bolt Performance Optimization:
+   * Throttle utility to limit the execution frequency of high-frequency events like 'scroll'.
+   */
+  function throttle(func, delay) {
+    let lastCall = 0;
+    let timeout = null;
+    return function (...args) {
+      const now = new Date().getTime();
+      const remaining = delay - (now - lastCall);
+      const context = this;
+      if (remaining <= 0) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        lastCall = now;
+        func.apply(context, args);
+      } else if (!timeout) {
+        timeout = setTimeout(() => {
+          lastCall = new Date().getTime();
+          timeout = null;
+          func.apply(context, args);
+        }, remaining);
+      }
+    };
+  }
+
+  /**
    * Header toggle
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
@@ -45,9 +73,9 @@
    */
   const selectHeader = document.querySelector('#header');
   if (selectHeader) {
-    document.addEventListener('scroll', () => {
+    document.addEventListener('scroll', throttle(() => {
       window.scrollY > 50 ? selectHeader.classList.add('scrolled') : selectHeader.classList.remove('scrolled');
-    });
+    }, 100));
   }
 
   /**
@@ -91,7 +119,7 @@
   });
 
   window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+  document.addEventListener('scroll', throttle(toggleScrollTop, 100));
 
   /**
    * Animation on scroll function and init
@@ -237,11 +265,6 @@
         navmenulink.sectionRef = document.querySelector(navmenulink.hash);
       }
       let section = navmenulink.sectionRef;
-
-      let section = navmenulink._section;
-      if (!section) {
-        section = navmenulink._section = document.querySelector(navmenulink.hash);
-      }
       if (!section) return;
 
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
@@ -253,21 +276,13 @@
         if (!navmenulink.classList.contains('active')) {
           navmenulink.classList.add('active');
         }
-      } else {
-        if (navmenulink.classList.contains('active')) {
-          navmenulink.classList.remove('active');
-        }
-        if (!navmenulink.classList.contains('active')) {
-          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-          navmenulink.classList.add('active');
-        }
       } else if (navmenulink.classList.contains('active')) {
         navmenulink.classList.remove('active');
       }
     });
   }
   window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+  document.addEventListener('scroll', throttle(navmenuScrollspy, 100));
 
   /**
    * Ensure Isotope initializes after all images and items are fully loaded.

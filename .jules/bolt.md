@@ -1,0 +1,3 @@
+## 2024-06-11 - Vanilla JS Throttle Edge Cases
+**Learning:** When adding a vanilla JS `throttle` function to manage UI state (like `scrollspy` or a 'scrolled' header class), a naive timestamp-based implementation that drops trailing events can cause the UI to freeze in the wrong state if the user stops scrolling right after a throttle tick. Preserving the `this` context is also vital for general reusability in DOM event listeners.
+**Action:** Always include trailing edge execution (using `setTimeout`) and `func.apply(context, args)` when creating throttle/debounce utilities for scroll/resize UI handlers.
